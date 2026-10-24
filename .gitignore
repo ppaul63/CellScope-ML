@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+data/raw/
+data/splits/
+data/*.db
+artifacts/*
+!artifacts/.gitkeep
+frontend/node_modules/
+frontend/dist/
+.DS_Store
+.pytest_cache/
+.claude/
+*.json.tmp
+frontend/.vite/

@@ -1,0 +1,31 @@
+# Registry of detection models served by CellScope ML.
+# To add a model: add an entry here, then put its exported files
+# (model.onnx, model_info.json, optional model.pt) in artifacts/models/<id>/.
+models:
+  - id: cervical-cytology
+    name: Cervical Cytology
+    category: Oncology
+    modality: Pap smear (liquid-based cytology) image
+    summary: Classifies cervical cell images into five Bethesda categories, from normal to squamous cell carcinoma.
+    input_hint: Upload a microscope image of a Pap smear.
+    classes:
+      NILM:
+        name: Negative for Intraepithelial Lesion or Malignancy
+        description: No abnormal squamous cells detected in this image.
+        risk: Low
+      ASCUS:
+        name: Atypical Squamous Cells of Undetermined Significance
+        description: Mildly abnormal cells; usually followed up with HPV testing or repeat cytology.
+        risk: Moderate
+      LSIL:
+        name: Low-grade Squamous Intraepithelial Lesion
+        description: Low-grade changes, often caused by HPV; many regress on their own.
+        risk: Moderate
+      HSIL:
+        name: High-grade Squamous Intraepithelial Lesion
+        description: High-grade precancerous changes; typically warrants colposcopy.
+        risk: High
+      SCC:
+        name: Squamous Cell Carcinoma
+        description: Features consistent with invasive squamous carcinoma; urgent specialist review.
+        risk: High

@@ -1,0 +1,5 @@
+.venv
+data
+frontend
+artifacts
+**/__pycache__

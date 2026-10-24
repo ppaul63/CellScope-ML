@@ -1,0 +1,25 @@
+name: cellscope-ml
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      CELLSCOPE_DB: /srv/data/cellscope.db
+    volumes:
+      - ./artifacts:/srv/artifacts:ro   # served models in artifacts/models/<id>/
+      - ./models.yaml:/srv/models.yaml:ro
+      - cellscope-data:/srv/data        # user accounts and sessions
+    restart: unless-stopped
+
+  web:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  cellscope-data:
